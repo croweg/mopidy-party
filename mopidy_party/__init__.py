@@ -8,19 +8,15 @@ __version__ = '0.0.1'
 
 
 
-class Extension(ext.Extension):
+class Extension(mopidy.ext.Extension):
 
-    dist_name = 'Mopidy-Party'
     ext_name = 'party'
     version = __version__
-    
+
     def get_default_config(self):
-        conf_file = os.path.join(os.path.dirname(__file__), 'ext.conf')
-        return config.read(conf_file)
-    
+        directory = os.path.dirname(os.path.abspath(__file__))
+        return mopidy.config.read(os.path.join(directory, 'ext.conf'))
+
     def setup(self, registry):
-        registry.add('http:static', {
-            'name': self.ext_name,
-            'path': os.path.join(os.path.dirname(__file__), 'static'),
-        })
-    
+        directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
+        registry.add('http:static', dict(name=self.ext_name, path=directory))
