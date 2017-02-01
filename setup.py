@@ -30,7 +30,7 @@ setup(
     ],
     entry_points={
         'mopidy.ext': [
-            'party = mopidy_jukelecteur:Extension',
+            'party = mopidy_party:Extension',
         ],
     },
     classifiers=[
