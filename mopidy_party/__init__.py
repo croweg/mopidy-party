@@ -10,7 +10,7 @@ __version__ = '0.0.1'
 
 class Extension(mopidy.ext.Extension):
 
-    ext_name = 'party'
+    ext_name = 'mopidy_jukelecteur'
     version = __version__
 
     def get_default_config(self):
