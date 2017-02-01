@@ -8,8 +8,9 @@ __version__ = '0.0.1'
 
 
 
-class mopidy_jukelecteur(ext.Extension):
-    dist_name = 'jukebox'
+class Extension(ext.Extension):
+
+    dist_name = 'Mopidy-Party'
     ext_name = 'party'
     version = __version__
     
