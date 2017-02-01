@@ -1,4 +1,41 @@
 .add-button {
   float: left;
   margin: 10px 10px 10px 0px;
+
+}
+body{
+    overflow-x: hidden;
+    margin: 0;
+}
+
+#banner1 {
+	display: block;
+	background-color: #96CA2D;
+	height: 50px;
+	width: 100%;
+}
+
+#menu {
+	min-width: 500px;
+	width: 100%;
+	height: 100px;
+	position: relative;
+	background-color: #B5E655;
+    
+}
+#menu ul { 
+    float: right;
+    right: 50%;
+    Position: relative;
+    
+}
+#banner2 {
+	display: block;
+	background-color: #ADCF4F;
+	height: 70px;
+	width: 100%;
+}
+
+.liens {
+    float:right
 }
