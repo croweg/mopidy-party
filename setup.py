@@ -29,8 +29,8 @@ setup(
         'Pykka >= 1.1',
     ],
     entry_points={
-        'mopidy.ext': [
-            'party = mopidy_party:Extension',
+        'party.ext': [
+            'party = modipy_jukelecteur:Extension',
         ],
     },
     classifiers=[
