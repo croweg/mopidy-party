@@ -2,7 +2,7 @@ from __future__ import absolute_import, unicode_literals
 
 import os
 
-from mopidy import ext
+from mopidy import config, ext
 
 __version__ = '0.2.1'
 
