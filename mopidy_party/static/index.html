@@ -20,7 +20,7 @@
 
 <div class="well well-sm">
 	<b>En lecture</b> :
-	{{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</small>
+	<marquee direction="left" scrollamount="2">{{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</small></marquee>
 	</div>
 	
 <body ng-controller="MainController">
