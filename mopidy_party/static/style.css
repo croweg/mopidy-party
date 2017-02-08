@@ -48,11 +48,7 @@ body{
 	color: #fff
 }
 
-.row {
-	color: #fff
-}
-
-.form {
-	color: #fff
-		
+.nav-pills {
+  display: inline-block;
+  top: 0;
 }
