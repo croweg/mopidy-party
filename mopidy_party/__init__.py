@@ -4,7 +4,7 @@ import os
 
 from mopidy import ext
 
-__version__ = '0.0.1'
+__version__ = '0.2.1'
 
 class Extension(ext.Extension):
 
@@ -28,4 +28,4 @@ class Extension(ext.Extension):
         registry.add('http:app', {
             'name': self.ext_name,
             'factory': party_factory,
-})
+        })
