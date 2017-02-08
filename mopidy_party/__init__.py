@@ -6,13 +6,6 @@ from mopidy import config, ext
 
 __version__ = '0.2.1'
 
-def party_factory(config, core):
-    data = {'track':"", 'votes':[]}
-    return [
-        ('/vote', PartyRequestHandler, {'core': core, 'data':data, 'config':config})
-    ]
-
-
 class Extension(ext.Extension):
 
     dist_name = 'Mopidy-Party'
@@ -31,8 +24,4 @@ class Extension(ext.Extension):
         registry.add('http:static', {
             'name': self.ext_name,
             'path': os.path.join(os.path.dirname(__file__), 'static'),
-        })
-        registry.add('http:app', {
-            'name': self.ext_name,
-            'factory': party_factory,
         })
