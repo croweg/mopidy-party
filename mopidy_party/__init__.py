@@ -6,17 +6,26 @@ from mopidy import ext
 
 __version__ = '0.0.1'
 
+class Extension(ext.Extension):
 
-
-class Extension(mopidy.ext.Extension):
-
-    ext_name = 'mopidy_jukelecteur'
+    dist_name = 'Mopidy-Party'
+    ext_name = 'party'
     version = __version__
 
     def get_default_config(self):
-        directory = os.path.dirname(os.path.abspath(__file__))
-        return mopidy.config.read(os.path.join(directory, 'ext.conf'))
+        conf_file = os.path.join(os.path.dirname(__file__), 'ext.conf')
+        return config.read(conf_file)
 
+    def get_config_schema(self):
+        schema = super(Extension, self).get_config_schema()
+        return schema
+    
     def setup(self, registry):
-        directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
-        registry.add('http:static', dict(name=self.ext_name, path=directory))
+        registry.add('http:static', {
+            'name': self.ext_name,
+            'path': os.path.join(os.path.dirname(__file__), 'static'),
+        })
+        registry.add('http:app', {
+            'name': self.ext_name,
+            'factory': party_factory,
+})
