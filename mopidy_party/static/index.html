@@ -32,17 +32,20 @@
         </div>
         <div class="col-xs-8">
           <div class="well well-sm">
-            <b>En cours de lecture</b> : {{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</small>
-          </div>
+			<b>En lecture</b> :
+			</div>
+		<div class="well well-sm">
+			{{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</small>
+			</div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
           <form ng-submit="search()">
-            <input type="text" role="search" class="form-control" placeholder="Search..." ng-model="searchField" ng-disabled="!ready">
+            <input type="text" role="search" class="form-control" placeholder="Recherchez..." ng-model="searchField" ng-disabled="!ready">
           </form>
           <div ng-show="loading" class="container-fluid">
-            <p><span class="glyphicon glyphicon-hourglass"></span> Loading...</p>
+            <p><span class="glyphicon glyphicon-hourglass"></span> Chargement...</p>
           </div>
         </div>
       </div>
