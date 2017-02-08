@@ -16,12 +16,15 @@
     <script type="text/javascript" src="vendors/angular.min.js"></script>
     <script type="text/javascript" src="controller.js"></script>
   
-	</head>
-
-<div class="well well-sm">
-	<b>En lecture</b> :
-	<marquee direction="left" scrollamount="2">{{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</small></marquee>
+</head>
+	<div class="row">
+	<div class="col-xs-1 col-xs-offset-1" >
+		<b><font color="white">En lecture : </font></b> :
 	</div>
+	<div class="col-xs-10">
+		<marquee direction="left" scrollamount="2">{{ currentState.track.name }} <small><font color="white">{{ printDuration(currentState.track) }}</font></small></marquee>
+	</div>
+</div>
 	
 <body ng-controller="MainController">
 	<div class="container-fluid" style="margin-top:20px">
