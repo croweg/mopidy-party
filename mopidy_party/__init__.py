@@ -6,6 +6,13 @@ from mopidy import config, ext
 
 __version__ = '0.2.1'
 
+def party_factory(config, core):
+    data = {'track':"", 'votes':[]}
+    return [
+        ('/vote', PartyRequestHandler, {'core': core, 'data':data, 'config':config})
+    ]
+
+
 class Extension(ext.Extension):
 
     dist_name = 'Mopidy-Party'
