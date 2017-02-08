@@ -12,7 +12,7 @@ def get_version(filename):
 
 
 setup(
-    name='jukebox',
+    name='Mopidy-Party',
     version=get_version('mopidy_party/__init__.py'),
     url='https://github.com/Lesterpig/mopidy-party',
     license='Apache License, Version 2.0',
@@ -28,11 +28,13 @@ setup(
         'Mopidy >= 1.0',
         'Pykka >= 1.1',
     ],
+    
     entry_points={
-        'party.ext': [
-            'party = modipy_jukelecteur:Extension',
+        'mopidy.ext': [
+            'party = mopidy_party:Extension',
         ],
-    },
+      },
+    
     classifiers=[
         'Environment :: No Input/Output (Daemon)',
         'Intended Audience :: End Users/Desktop',
