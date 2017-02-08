@@ -21,22 +21,24 @@
 <body ng-controller="MainController">
 	<div class="container-fluid" style="margin-top:20px">
 		<div class="row">
-		<div class="col-xs-12">	
-			<ul class="nav nav-pills nav-justified">
+			<div class="col-xs-6">	
+				<ul class="nav nav-pills nav-justified">
 					<li class="active"><a data-toggle="pill" href="#recherche">Recherche</a></li>
-					 <li><a data-toggle="pill" href="#playlist">Playlist</a></li>
+					<li><a data-toggle="pill" href="#playlist">Playlist</a></li>
 				</ul>
 			</div>
 		</div>
 		
 		<div class="tab-content">
 			<div id="recherche" class="tab-pane fade in active">
-				<div class="col-xs-12">
-					<form ng-submit="search()">
-						<input type="text" role="search" class="form-control" placeholder="Recherchez..." ng-model="searchField" ng-disabled="!ready">
-					</form>
-					<div ng-show="loading" class="container-fluid">
-						<p><span class="glyphicon glyphicon-hourglass"></span> Chargement...</p>
+				<div class="row">
+					<div class="col-xs-12">
+						<form ng-submit="search()">
+							<input type="text" role="search" class="form-control" placeholder="Recherchez..." ng-model="searchField" ng-disabled="!ready">
+						</form>
+						<div ng-show="loading" class="container-fluid">
+							<p><span class="glyphicon glyphicon-hourglass"></span> Chargement...</p>
+						</div>
 					</div>
 				</div>
 				<ul class="list-group" style="margin-top:20px">
