@@ -40,3 +40,19 @@ body{
 .liens {
     float:right
 }
+
+.well {
+	background-color: #474747;
+	border: 0px solid #000;
+	border-radius: 0px;
+	color: #fff
+}
+
+.row {
+	color: #fff
+}
+
+.form {
+	color: #fff
+		
+}
