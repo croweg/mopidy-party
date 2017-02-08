@@ -18,6 +18,11 @@
   
 	</head>
 
+<div class="well well-sm">
+	<b>En lecture</b> :
+	{{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</small>
+	</div>
+	
 <body ng-controller="MainController">
 	<div class="container-fluid" style="margin-top:20px">
 		<div class="row">
@@ -32,7 +37,7 @@
 		<div class="tab-content">
 			<div id="recherche" class="tab-pane fade in active">
 				<div class="row">
-					<div class="col-xs-12">
+					<div class="col-xs-12" style="margin-top:20px">
 						<form ng-submit="search()">
 							<input type="text" role="search" class="form-control" placeholder="Recherchez..." ng-model="searchField" ng-disabled="!ready">
 						</form>
@@ -47,23 +52,12 @@
 							<span class="glyphicon glyphicon-play" ng-if="!track.disabled"></span>
 							<span class="glyphicon glyphicon-ok"   ng-if="track.disabled"></span>
 						</button>
-						{{ track.name }} <small>{{ printDuration(track) }}</small><br>
-						<small>
-							{{ track.album.name }}
-							<span ng-if="track.artists">by</span>
-							<span ng-repeat="artist in track.artists">
-								<span ng-if="!$first"> & </span>
-								{{ artist.name }}
-							</span>
-						</small>
+					{{ track.name }} <small>{{ printDuration(track) }}</small>
 					</li>
 				</ul>
 			</div>
 			<div id="playlist" class="tab-pane fade">
-				<div class="well well-sm">
-					<b>En lecture</b> :
-					{{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</small>
-				</div>
+	
 			</div>
 		</div>
 		

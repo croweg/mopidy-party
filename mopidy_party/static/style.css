@@ -45,7 +45,8 @@ body{
 	background-color: #474747;
 	border: 0px solid #000;
 	border-radius: 0px;
-	col
+	text-decoration-style: wavy;
+	color: azure
 }
 
 .nav {
