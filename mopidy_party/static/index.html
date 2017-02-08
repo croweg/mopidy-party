@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Jukebox</title>
+    <title>Party!</title>
 
     <link href="vendors/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
@@ -14,10 +14,7 @@
     <script type="text/javascript" src="vendors/angular.min.js"></script>
     <script type="text/javascript" src="controller.js"></script>
   </head>
-  <body ng-controller="MainController">   
-      <div id="banner1"></div>
-        <div id="menu">
-            <ul>Choisissez votre musique</ul>
+  <body ng-controller="MainController">
     <div class="container-fluid" style="margin-top:20px">
       <div class="row">
         <div class="col-xs-4">
@@ -35,17 +32,17 @@
         </div>
         <div class="col-xs-8">
           <div class="well well-sm">
-            {{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</small> 
+            {{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</small>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
           <form ng-submit="search()">
-            <input type="text" role="search" class="form-control" placeholder="Recherche..." ng-model="searchField" ng-disabled="!pret">
+            <input type="text" role="search" class="form-control" placeholder="Search..." ng-model="searchField" ng-disabled="!ready">
           </form>
           <div ng-show="loading" class="container-fluid">
-            <p><span class="glyphicon glyphicon-hourglass"></span> Chargement musique...</p>
+            <p><span class="glyphicon glyphicon-hourglass"></span> Loading...</p>
           </div>
         </div>
       </div>
@@ -53,8 +50,7 @@
       <div class="alert" role="alert" ng-show="message.length" ng-class="{'alert-success' : (message[0] == 'success'), 'alert-danger' : (message[0] == 'error')}">
         {{ message[1] }}
       </div>
-        <div class="liens"> 
-       <a href="parametre.html"><img src="image/engrenage.jpg" width="35" height="36" alt="parametre"></a>
+
       <ul class="list-group" style="margin-top:20px">
         <li class="list-group-item" ng-repeat="track in tracks">
           <button type="button" class="btn btn-xs btn-success add-button" ng-click="addTrack(track)" ng-disabled="track.disabled">
