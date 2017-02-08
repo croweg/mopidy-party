@@ -1,42 +1,40 @@
-'use strict';
+"use strict";
 
 var MIN_DURATION_BEFORE_SKIP = 60000;
 
 // TODO : add a mopidy service designed for angular, to avoid ugly $scope.$apply()...
 
 angular.module('partyApp', [])
-  .controller('MainController', function($scope) {
-
-  // Scope variables
-
-  $scope.message = [];
-  $scope.tracks  = [];
-  $scope.loading = true;
-  $scope.ready   = false;
-  $scope.currentState = {
-    paused : false,
-    length : 0,
-    track  : {
-      length : 0,
-      name   : '-'
-    }
-  };
+	.controller('MainController', function ($scope) {
+		// Scope variables
+		$scope.message = [];
+		$scope.tracks  = [];
+		$scope.loading = true;
+		$scope.ready   = false;
+		$scope.currentState = {
+			paused : false,
+			length : 0,
+			track  : {
+				length : 0,
+				name   : '-'
+			}
+		};
 
   // Initialize
 
-  var mopidy = new Mopidy({
-    'callingConvention' : 'by-position-or-by-name'
-  });
+		var mopidy = new Mopidy({
+			'callingConvention' : 'by-position-or-by-name'
+		});
 
   // Adding listenners
 
-  mopidy.on('state:online', function () {
-    mopidy.playback
-    .getCurrentTrack()
-    .then(function(track){
-      if(track)
-        $scope.currentState.track = track;
-      return mopidy.playback.getState();
+		mopidy.on('state:online', function () {
+			mopidy.playback
+				.getCurrentTrack()
+				.then(function (track) {
+					if (track)
+					$scope.currentState.track = track;
+				return mopidy.playback.getState();
     })
     .then(function(state){
       $scope.currentState.paused = (state === 'paused');
