@@ -13,21 +13,21 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/mopidy/mopidy.min.js"></script>
-    <script type="text/javascript" src="vendors/angular.min.js"></script>
+    <script type="text/javascript" src="vendors/an1gular.min.js"></script>
     <script type="text/javascript" src="controller.js"></script>
   
 </head>
-	<div class="row" style="margin-left:10px">
-	<div class="col-xs-2" style="margin-top:10px">
-		<b><font color="white">En lecture : </font></b> :
+	<div class="row" style="background-color: #474747; border: 3px solid #554400; border-radius: 7px; margin-left:10px; margin-right:10px; margin-top: 10px">
+	<div class="col-xs-4" >
+		<b><font color="white">En lecture: </font></b> :
 		</div>
-	<div class="col-xs-9" style="margin-top:10px">
+	<div class="col-xs-8" >
 		<marquee direction="left" scrollamount="2"><font color="white">{{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</font></small></marquee>
 	</div>
 </div>
 	
 <body ng-controller="MainController">
-	<div class="container-fluid" style="margin-top:20px">
+	<div class="container-fluid" style="margin-top:15px">
 		
 		<div class="row">
 			<div class="col-xs-12">	
@@ -41,11 +41,11 @@
 		<div class="tab-content">
 			<div id="recherche" class="tab-pane fade in active">
 				<div class="row">
-					<div class="col-xs-12" style="margin-top:20px">
+					<div class="col-xs-12" style="margin-top:5px; color:white ">
 						<form ng-submit="search()">
-							<input type="text" role="search" class="form-control" placeholder="Recherchez..." ng-model="searchField" ng-disabled="!ready">
+							<input type="text" role="search"  class="form-control" placeholder="Recherchez..." ng-model="searchField" ng-disabled="!ready">
 						</form>
-						<div ng-show="loading" class="container-fluid">
+						<div ng-show="loading" class="container-fluid" >
 							<p><span class="glyphicon glyphicon-hourglass"></span> Chargement...</p>
 						</div>
 					</div>
@@ -60,7 +60,13 @@
 					</li>
 				</ul>
 			</div>
-			<div id="playlist" class="tab-pane fade">
+			
+           <div id="playlist" class="tab-pane fade">
+				<ul class="list-group" style="margin-top:4px">
+					<li class="list-group-item" ng-repeat="track in tracks">
+					    {{ track.name }} <small>{{ printDuration(track) }}</small>
+					</li>
+				</ul>
 	
 			</div>
 		</div>
