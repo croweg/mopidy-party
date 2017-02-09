@@ -17,17 +17,18 @@
     <script type="text/javascript" src="controller.js"></script>
   
 </head>
-	<div class="row">
-	<div class="col-xs-1 col-xs-offset-1" >
+	<div class="row" style="margin-left:10px">
+	<div class="col-xs-2" style="margin-top:10px">
 		<b><font color="white">En lecture : </font></b> :
-	</div>
-	<div class="col-xs-10">
+		</div>
+	<div class="col-xs-9" style="margin-top:10px">
 		<marquee direction="left" scrollamount="2"><font color="white">{{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</font></small></marquee>
 	</div>
 </div>
 	
 <body ng-controller="MainController">
 	<div class="container-fluid" style="margin-top:20px">
+		
 		<div class="row">
 			<div class="col-xs-12">	
 				<ul class="nav nav-pills nav-justified">
