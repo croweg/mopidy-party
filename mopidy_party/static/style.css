@@ -10,7 +10,7 @@
   }
 }
 
-																																																																														body {
+body {
     overflow-x: hidden;
     margin: 0;
 	background-color: #333;
@@ -34,7 +34,7 @@
 
 .add-button {
   float: left;
-  margin: 0 10px 0 0;
+  margin: 10px 10px 0 0;
 }
 
 .nav {
@@ -72,5 +72,5 @@ a.fill-div {
     height: 100%;
     width: 100%;
     text-decoration: none;
-    color: #ffffff;
+	color: #ffffff
 }

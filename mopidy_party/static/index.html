@@ -13,7 +13,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/mopidy/mopidy.min.js"></script>
-		<script type="text/javascript" src="vendors/angular.min.js"></script>
+		<script type="text/javascript" src="vendors/angulaar.min.js"></script>
 		<script type="text/javascript" src="controller.js"></script>
   </head>
 	
@@ -64,7 +64,8 @@
 								<span class="glyphicon glyphicon-play" ng-if="!track.disabled"></span>
 								<span class="glyphicon glyphicon-ok"   ng-if="track.disabled"></span>
 							</button>
-							<a class="fill-div" ng-click="addTrack(track)">{{ track.name }} <small>{{ printDuration(track) }}</small>
+							<a class="fill-div" ng-click="addTrack(track)">{{ track.name }}<br>
+								<small>{{ printDuration(track) }}</small>
 							</a>
 						</li>
 					</ul>
