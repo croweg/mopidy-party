@@ -46,7 +46,7 @@ body {
 .list-group-item {
 	background-color: #428bca;
 	border: 2px solid #2e6da4;
-	color: #FFFFFF;
+	color: #ffffff;
 }
 
 .input-group {
@@ -59,6 +59,10 @@ body {
 	
 a:focus{
 	outline: none;
-	background-color: #2e6da4;
+	background-color: #428bca;
 }
 
+.btn.btn-default:focus{
+	outline: none;
+	box-shadow: none;
+}
