@@ -17,9 +17,9 @@
     <script type="text/javascript" src="controller.js"></script>
   
 </head>
-	<div class="row" style="background-color: #474747; border: 3px solid #554400; border-radius: 7px; margin-left:10px; margin-right:10px; margin-top: 10px">
+	<div class="row" id="playing">
 	<div class="col-xs-4" >
-		<b><font color="white">En lecture: </font></b> :
+		<b><font color="white">En lecture : </font></b> 
 		</div>
 	<div class="col-xs-8" >
 		<marquee direction="left" scrollamount="2"><font color="white">{{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</font></small></marquee>
