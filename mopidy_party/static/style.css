@@ -6,7 +6,7 @@
 body{
     overflow-x: hidden;
     margin: 0;
-	background-color: #f37735
+	background-color: #333
 }
 
 #banner1 {
@@ -42,7 +42,7 @@ body{
 }
 
 .well {
-	background-color: #0e1752;
+	background-color: #474747;
 	border: 0px solid #000;
 	border-radius: 0px;
 	text-decoration-style: wavy;
@@ -56,27 +56,12 @@ body{
 }
 
 .list-group-item {
-	background-color: #d11141;
-	border: 2px solid #00aedb;
+	background-color: #474747;
+	border: 3px solid #554400;
 	color: #FFFFFF 
 	
 }
 
-.tab-content{
-	background-color: #d11141
-}
-
-.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
-background-color:#d11141;
-	border-radius: 12px 12px 0 0
-}
-
-#playing {
-	background-color: #d11141; 
-	border: 1px solid #ffc425; 
-	border-radius: 7px; 
-	margin: 10px 10px 0 10px;
-}
 
 @media (max-width: 768px) {
   .nav-justified > li {
