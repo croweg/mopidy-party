@@ -9,6 +9,7 @@ angular.module('partyApp', [])
 		// Scope variables
 		$scope.message = [];
 		$scope.tracks  = [];
+		$scope.tltrack = [];
 		$scope.loading = true;
 		$scope.ready   = false;
 		$scope.currentState = {
@@ -58,8 +59,8 @@ mopidy.on('state:online', function () {
 	});
   
 	mopidy.on('event:tracklistChanged', function(){
-		mopidy.tracklist.getTlTracks().done(function(tltracks) {
-			$scope.tltracks = tltracks;
+		mopidy.tracklist.getTlTracks().done{
+			$scope.tltracks = [];
 			$scope.$apply();
 		});
 	});
