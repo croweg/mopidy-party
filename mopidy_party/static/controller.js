@@ -9,7 +9,6 @@ angular.module('partyApp', [])
 		// Scope variables
 		$scope.message = [];
 		$scope.tracks  = [];
-		$scope.tltracks = [];
 		$scope.loading = true;
 		$scope.ready   = false;
 		$scope.currentState = {
