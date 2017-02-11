@@ -48,13 +48,6 @@ mopidy.on('state:online', function () {
 		$scope.$apply();
 	})
 			
-	mopidy.on(event:'playlistChanged', function(){
-		mopidy.tracklist.getTlTracks().done(function(tltracks) {
-			$scope.tltracks = tltracks;
-			$scope.$apply();
-			});
-		});
-			
 	mopidy.on('event:playbackStateChanged', function(event){
 		$scope.currentState.paused = (event.new_state === 'paused');
 		$scope.$apply();
@@ -66,10 +59,6 @@ mopidy.on('state:online', function () {
 	});
   
 	mopidy.on('event:tracklistChanged', function(){
-		mopidy.tracklist.getLength().done(function(length){
-			$scope.currentState.length = length;
-			$scope.$apply();
-		});
 		mopidy.tracklist.getTlTracks().done(function(tltracks) {
 			$scope.tltracks = tltracks;
 			$scope.$apply();
