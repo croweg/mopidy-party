@@ -8,6 +8,7 @@ angular.module('partyApp', [])
 
   $scope.message = [];
   $scope.tracks  = [];
+	$scope.tltrack = [];
   $scope.loading = true;
   $scope.ready   = false;
   $scope.currentState = {
@@ -57,10 +58,11 @@ angular.module('partyApp', [])
     $scope.$apply();
   });
   mopidy.on('event:tracklistChanged', function(){
-    mopidy.tracklist.getLength().done(function(length){
-      $scope.currentState.length = length;
-      $scope.$apply();
-    });
+    	mopidy.tracklist.getTlTracks().done{
+			$scope.tltracks.track = [];
+			$scope.$apply();
+		});
+
   });
 
   $scope.printDuration = function(track){
