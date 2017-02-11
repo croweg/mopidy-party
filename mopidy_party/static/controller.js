@@ -159,4 +159,4 @@ mopidy.on('event:playbackStateChanged', function(event){
 	};
 
 
-});
+);
