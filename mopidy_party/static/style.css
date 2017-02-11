@@ -5,7 +5,7 @@
   }
   .nav-justified > li > a  {
     border-bottom: 0px solid #333 !important;
-    border-radius: 10px 10px 0 0 !important;
+    border-radius: 12px 12px 0 0 !important;
     margin-bottom: 0 !important;
   }
 }
@@ -25,7 +25,7 @@ body {
 
 #recherche  {
 	background-color: #428bca;
-	border-radius: 0 0 10px 10px;
+	border-radius: 0 0 12px 12px;
 }
 
 .add-button {
@@ -51,6 +51,8 @@ body {
 
 .nav-pills > li.active > a {
 	background-color: #428bca;
+	border-radius: 12px 12px 0 0 ;
+	
 }
 	
 a:focus{
