@@ -30,7 +30,8 @@ angular.module('partyApp', [])
   // Adding listenners
 
 mopidy.on('state:online', function () {
-	mopidy.playback.getCurrentTrack().then(function (track) {
+	mopidy.playback.getCurrentTrack()
+		.then(function (track) {
 		if (track)
 			$scope.currentState.track = track;
 		return mopidy.playback.getState();
@@ -47,11 +48,12 @@ mopidy.on('state:online', function () {
 		$scope.loading = false;
 		$scope.$apply();
 	})
+});
 			
-	mopidy.on('event:playbackStateChanged', function(event){
-		$scope.currentState.paused = (event.new_state === 'paused');
-		$scope.$apply();
-	});
+mopidy.on('event:playbackStateChanged', function(event){
+	$scope.currentState.paused = (event.new_state === 'paused');
+	$scope.$apply();
+});
   
 	mopidy.on('event:trackPlaybackStarted', function(event){
 		$scope.currentState.track = event.tl_track.track;
@@ -60,7 +62,7 @@ mopidy.on('state:online', function () {
   
 	mopidy.on('event:tracklistChanged', function(){
 		mopidy.tracklist.getTlTracks().done{
-			$scope.tltracks = [];
+			$scope.tltracks.track = [];
 			$scope.$apply();
 		});
 	});
