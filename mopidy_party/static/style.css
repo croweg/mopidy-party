@@ -17,14 +17,14 @@ body {
 }
 
 #playing {
-	background-color: #428bca;
+	background-color: #337AB7;
 	border: 1px solid #5bc0de;
 	border-radius: 7px;
 	margin:10px 15px 0 15px;
 }
 
 #recherche  {
-	background-color: #428bca;
+	background-color: #337AB7;
 	border-radius: 0 0 12px 12px;
 }
 
@@ -40,7 +40,7 @@ body {
 }
 
 .list-group-item {
-	background-color: #428bca;
+	background-color: #337AB7;
 	border: 2px solid #2e6da4;
 	color: #ffffff;
 }
@@ -50,14 +50,14 @@ body {
 }
 
 .nav-pills > li.active > a {
-	background-color: #428bca;
+	background-color: #337AB7;
 	border-radius: 12px 12px 0 0 ;
 	
 }
 	
 a:focus{
 	outline: none;
-	background-color: #428bca;
+	background-color: #337AB7;
 }
 
 .btn.btn-default:focus{
