@@ -9,7 +9,7 @@ Extension web Mopidy crée pour pour notre projet de terminale. Son but principa
 Installation
 ============
 
-Vous devez installer `mopidy <https://www.mopidy.com/>`_, _`pip <https://pip.pypa.io/en/stable/installing/>`_ ainsi que qu'un backend pour mopidy nous recommandons `Mopidy-Youtube <https://github.com/Informatic/mopidy-youtube/>`_
+Vous devez installer `mopidy <https://www.mopidy.com/>`_ , `pip <https://pip.pypa.io/en/stable/installing/>`_ ainsi que qu'un backend pour mopidy nous recommandons `Mopidy-Youtube <https://github.com/Informatic/mopidy-youtube/>`_
 
 Il vous suffit ensuite d'executer cette commande pour l'installer::
 
