@@ -9,18 +9,17 @@ Extension web Mopidy crée pour pour notre projet de terminale. Son but principa
 Installation
 ============
 
-Vous devez installer `mopidy <https://www.mopidy.com/>`_ 
+Vous devez installer `mopidy <https://www.mopidy.com/>`_, _`pip <https://pip.pypa.io/en/stable/installing/>`_ ainsi que qu'un backend pour mopidy nous recommandons `Mopidy-Youtube <https://github.com/Informatic/mopidy-youtube/>`_
 
-Vous devez installer pip puis::
+Il vous suffit ensuite d'executer cette commande pour l'installer::
 
-    sudo pip install Mopidy-Party
+    sudo pip install Mopidy-Jukebox
 
 Project resources
 =================
 
 - `Source code <https://github.com/Lesterpig/mopidy-party>`_
 - `Issue tracker <https://github.com/Lesterpig/mopidy-party/issues>`_
-- `Development branch tarball <https://github.com/Lesterpig/mopidy-party/archive/master.tar.gz#egg=Mopidy-Party-dev>`_
 
 Changelog
 =========
