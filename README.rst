@@ -1,14 +1,9 @@
 ****************************
-Mopidy-Party
+Mopidy-Jukebox
 ****************************
-
-Mopidy web extension designed for party! Let your guests manage the sound ;)
-
-- Minimal, fast web interface designed for mobile
-- Search soundtracks and add it to the queue
-- Skip current track (only if at least 1 min played from current track)
-
-See this `blog entry <http://blog.lesterpig.com/2015/09/01/Build-a-connected-jukebox-from-a-Raspberry-Pi/>`_ for some details about this package.
+Extension web Mopidy crée pour pour notre projet de terminale. Son but principal est de fournir aux utilisateur une interface repondant à ces critères :
+    - Interface adaptée aux smartphones
+    - Utilisation simple et intuitive
 
 Installation
 ============
