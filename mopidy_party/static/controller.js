@@ -60,9 +60,11 @@ angular.module('partyApp', [])
     $scope.$apply();
   });
   mopidy.on('event:tracklistChanged', function(){
-    mopidy.tracklist.getTracks().done(function(tltrack){
-      $scope.tltracks.name = tltrack[0]["name"];
-      $scope.$apply();
+     mopidy.tracklist.getTracks().done(function(tltrack){
+	      for (var name in tltrack[0]) {
+		      $scope.tltracks.name = tltrack[0]["name"];
+		      $scope.$apply();
+	      }
     });
   });
 
