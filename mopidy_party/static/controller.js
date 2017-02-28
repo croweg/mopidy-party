@@ -62,10 +62,13 @@ angular.module('partyApp', [])
   mopidy.on('event:tracklistChanged', function(){
     mopidy.tracklist.getTracks().done(function(tltrack){
       var size = Object.keys(tltrack).lenght;
-			for (var i=0; i<size; i++){
-					$scope.tltracks.name = tltrack[i]["name"];
-					$scope.$apply();
-				}
+	    for (var i=0; i<size; i++){
+		    $scope.tltracks.name = tltrack[i]["name"];
+		    $scope.$apply();
+		    console.log("lenght: " + size);      
+		    console.log("name: " + tltrack[i]["name"]);
+		    console.log("tltracks :" tltracks);
+	    }
     });
   });
 
