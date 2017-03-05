@@ -67,7 +67,6 @@ angular.module('partyApp', [])
 		    $scope.$apply();
 		    console.log("lenght: " + size);      
 		    console.log("name: " + tltrack[i]["name"]);
-		    console.log("tltracks :" tltracks);
 	    }
     });
   });
