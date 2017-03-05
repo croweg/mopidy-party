@@ -21,7 +21,7 @@ angular.module('partyApp', [])
       name   : 'Nothing playing, add some songs to get the party going!'
     }
   };
-
+console.log("extName: " + tltracks.name)
   // Initialize
 
   var mopidy = new Mopidy({
@@ -61,7 +61,8 @@ angular.module('partyApp', [])
   });
   mopidy.on('event:tracklistChanged', function(){
     mopidy.tracklist.getTracks().done(function(tltrack){
-      var size = Object.keys(tltrack).lenght;
+	    console.log("tltrack: " + tltrack);
+	    var size = Object.keys(tltrack).lenght;
 	    for (var i=0; i<size; i++){
 		    $scope.tltracks.name = tltrack[i]["name"];
 		    $scope.$apply();
