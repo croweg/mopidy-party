@@ -62,8 +62,12 @@ console.log("extName: " + $scope.tltracks.name)
   mopidy.on('event:tracklistChanged', function(){
     mopidy.tracklist.getTracks().done(function(tltrack){
 	    console.log("tltrack: " + tltrack);
-	    var size = Object.keys(tltrack).lenght;
-		console.log("size: " + size);
+	    var keys = Object.keys(tltrack)0;
+			console.log("keys: " + keys)
+			for (var i = 0, len = keys.length; i < len; i++) {
+				console.log("cokeys: " + coordinates[keys[i]]);
+			}
+			console.log("size: " + size);
 	    for (var i=0; i<size; i++){
 		    $scope.tltracks.name = tltrack[i]["name"];
 		    $scope.$apply();
