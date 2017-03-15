@@ -61,21 +61,15 @@ console.log("extName: " + $scope.tltracks.name)
   });
   mopidy.on('event:tracklistChanged', function(){
     mopidy.tracklist.getTracks().done(function(tltrack){
-	    console.log("tltrack: " + tltrack);
+	    	console.log("tltrack: " + tltrack);
 	    var keys = Object.keys(tltrack);
-			console.log("keys: " + keys);
+				console.log("keys: " + keys);
 			for (var i = 0, len = keys.length; i < len; i++) {
-				console.log("cokeys: " + tltrack[keys[i]]);
-			}
-			console.log("size: " + size);
-	    for (var i=0; i<size; i++){
-		    $scope.tltracks.name = tltrack[i]["name"];
-		    $scope.$apply();
-		    console.log("lenght: " + size);      
-		    console.log("name: " + tltrack[i]["name"]);
-	    }
-    });
-  });
+				console.log("Total keys: " + keys.lenght);
+				console.log("Name: " + tltrack[i]["name"])
+				$scope.tltracks.name = tltrack[i]["name"]}
+		});
+	});
 
 	function trackName(tlname) {
 		return tlname.album.name === name;
