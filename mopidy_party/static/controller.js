@@ -61,13 +61,13 @@ console.log("extName: " + $scope.tltracks.name)
   });
   mopidy.on('event:tracklistChanged', function(){
     mopidy.tracklist.getTracks().done(function(tltrack){
-	    	console.log("tltrack: " + tltrack);
+	    console.log("tltrack: " + tltrack);
 	    var keys = Object.keys(tltrack);
-				console.log("keys: " + keys);
+			console.log("keys: " + keys);
 			for (var i = 0, len = keys.length; i < len; i++) {
-				console.log("Total keys: " + keys.lenght);
-				console.log("Name: " + tltrack[i]["name"])
-				$scope.tltracks.name = tltrack[i]["name"]}
+				console.log("Name: " + tltrack[i]["name"]);
+				$scope.tltracks.name = tltrack[i]["name"];
+				console.log("ExtName: " + $scope.tltracks.name)}
 		});
 	});
 
