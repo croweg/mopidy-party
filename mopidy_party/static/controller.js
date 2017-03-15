@@ -19,7 +19,7 @@ angular.module('partyApp', [])
       name   : 'Nothing playing, add some songs to get the party going!'
     }
   };
-console.log("extName: " + $scope.tltracks.name)
+console.log("extName: " + $scope.tltracks)
   // Initialize
 
   var mopidy = new Mopidy({
