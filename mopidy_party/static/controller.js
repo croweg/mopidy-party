@@ -66,7 +66,7 @@ console.log("extName: " + $scope.tltracks.name)
 			console.log("keys: " + keys);
 			for (var i = 0, len = keys.length; i < len; i++) {
 				console.log("Name: " + tltrack[i]["name"]);
-				$scope.tltracks.name = tltrack[i]["name"];
+				$scope.tltracks.name.push(tltrack[i]["name"]);
 				console.log("ExtName: " + $scope.tltracks.name)}
 		});
 	});
