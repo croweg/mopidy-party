@@ -58,6 +58,11 @@
 							</div>
 						</div>
 					</div>
+					
+					 <div class="alert" role="alert" ng-show="message.length" ng-class="{'alert-success' : (message[0] == 'success'), 'alert-danger' : (message[0] == 'error')}">
+        {{ message[1] }}
+					</div>
+					
 					<ul class="list-group" style="margin-top:20px">
 						<li class="list-group-item" ng-repeat="track in tracks">
 							<button type="button" class="btn btn-xs btn-success add-button" ng-click="addTrack(track)" ng-disabled="track.disabled">
@@ -74,7 +79,7 @@
 				<div id="playlist" class="tab-pane fade">
 					<ul class="list-group" style="margin-top:0px">
 						<li class="list-group-item" ng-repeat="tltrack in tltracks">
-							{{ tltrack }} <small>{{ printDuration(tltrack) }}</small>
+							{{ tltracks }} <small>{{ printDuration(tltrack) }}</small>
 						</li>
 					</ul>
 				</div>
