@@ -43,6 +43,13 @@ console.log("extName: " + $scope.tltracks)
     .then(function(length){
       $scope.currentState.length = length;
     })
+		.then(function(tltrack){ 
+	    var keys = Object.keys(tltrack);
+			var tracks = [];
+			for (var i = 0, len = keys.length; i < len; i++) { 
+				tracks.push(tltrack[i]["name"]);
+				$scope.tltracks = tracks;
+			}})
     .done(function(){
       $scope.ready   = true;
       $scope.loading = false;
@@ -58,18 +65,14 @@ console.log("extName: " + $scope.tltracks)
     $scope.$apply();
   });
   mopidy.on('event:tracklistChanged', function(){
-    mopidy.tracklist.getTracks().done(function(tltrack){
-	    console.log("tltrack: " + tltrack);
+    mopidy.tracklist.getTracks().done(function(tltrack){ 
 	    var keys = Object.keys(tltrack);
 			var tracks = [];
-			console.log("keys: " + keys);
-			for (var i = 0, len = keys.length; i < len; i++) {
-				console.log("Name: " + tltrack[i]["name"]); 
+			for (var i = 0, len = keys.length; i < len; i++) { 
 				tracks.push(tltrack[i]["name"]);
-				console.log("tracks: " + tracks);
 				$scope.tltracks = tracks;
-				console.log("ExtName: " + $scope.tltracks.name)}
-	    			$scope.$apply()
+			}
+			$scope.$apply()
 		});
 	});
 
