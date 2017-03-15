@@ -8,7 +8,6 @@ angular.module('partyApp', [])
 
   $scope.message = [];
   $scope.tracks  = [];
-  $scope.tltracks = "Aucune musique dans la playlist";
   $scope.loading = true;
   $scope.ready   = false;
   $scope.currentState = {
