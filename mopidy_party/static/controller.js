@@ -48,7 +48,8 @@ angular.module('partyApp', [])
       $scope.$apply();
     });
 		
-		mopidy.tracklist.getTracks().done(function(tltrack){
+		mopidy.tracklist.getTracks()
+			.done(function(tltrack){
 	    var keys = Object.keys(tltrack);
 			var tracks = [];
 			for (var i = 0, len = keys.length; i < len; i++) { 
@@ -68,12 +69,13 @@ angular.module('partyApp', [])
     $scope.$apply();
   });
   mopidy.on('event:tracklistChanged', function(){
-    mopidy.tracklist.getTracks().done(function(tltrack){
-	    var keys = Object.keys(tltrack);
-			var tracks = [];
+    mopidy.tracklist.getTracks()
+			.done(function(tltrack){
+			var keys = Object.keys(tltrack);
+			var tracklist = [];
 			for (var i = 0, len = keys.length; i < len; i++) { 
-				tracks.push(tltrack[i]["name"]);
-				$scope.tltracks = tracks;
+				tracklist.push(tltrack[i]["name"]);
+				$scope.tltracks = tracklist;
 			}
 			$scope.$apply()
 		});
@@ -146,14 +148,13 @@ angular.module('partyApp', [])
 
     track.disabled = true;
 
-    mopidy.tracklist
-    .index()
+    mopidy.tracklist.index()
     .then(function(index){
       return mopidy.tracklist.add({uris: [track.uri]});
     })
     .then(function(){
       // Notify user
-      $scope.message = ['success', 'Next track: ' + track.name];
+      $scope.message = ['success', track.name + 'à été ajouté à la playlist'];
       $scope.$apply();
       return mopidy.tracklist.setConsume([true]);
     })
@@ -169,7 +170,7 @@ angular.module('partyApp', [])
     })
     .catch(function(){
       track.disabled = false;
-      $scope.message = ['error', 'Unable to add track, please try again...'];
+      $scope.message = ['error', "Impossible d'ajouter la musique, veuillez réessayer..."];
       $scope.$apply();
     })
     .done();
