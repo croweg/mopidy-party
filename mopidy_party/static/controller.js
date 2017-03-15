@@ -48,13 +48,13 @@ angular.module('partyApp', [])
       $scope.$apply();
     });
 		
-		mopidy.tracklist.getTracks()
+mopidy.tracklist.getTracks()
 			.done(function(tltrack){
 	    var keys = Object.keys(tltrack);
-			var tracks = [];
+			var tracklist = [];
 			for (var i = 0, len = keys.length; i < len; i++) { 
-				tracks.push(tltrack[i]["name"]);
-				$scope.tltracks = tracks;
+				tracklist.push(tltrack[i]["name"]);
+				$scope.tltracks = tracklist;
 			}
 			$scope.$apply()
 		});
