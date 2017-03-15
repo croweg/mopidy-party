@@ -19,7 +19,6 @@ angular.module('partyApp', [])
       name   : 'Nothing playing, add some songs to get the party going!'
     }
   };
-console.log("extName: " + $scope.tltracks)
   // Initialize
 
   var mopidy = new Mopidy({
@@ -29,8 +28,7 @@ console.log("extName: " + $scope.tltracks)
   // Adding listenners
 
   mopidy.on('state:online', function () {
-    mopidy.playback
-    .getCurrentTrack()
+    mopidy.playback.getCurrentTrack()
     .then(function(track){
       if(track)
         $scope.currentState.track = track;
@@ -48,6 +46,7 @@ console.log("extName: " + $scope.tltracks)
       $scope.loading = false;
       $scope.$apply();
     });
+		
   });
   mopidy.on('event:playbackStateChanged', function(event){
     $scope.currentState.paused = (event.new_state === 'paused');
@@ -57,7 +56,17 @@ console.log("extName: " + $scope.tltracks)
     $scope.currentState.track = event.tl_track.track;
     $scope.$apply();
   });
-
+  mopidy.on('event:tracklistChanged', function(){
+    mopidy.tracklist.getTracks().done(function(tltrack){
+	    var keys = Object.keys(tltrack);
+			var tracks = [];
+			for (var i = 0, len = keys.length; i < len; i++) { 
+				tracks.push(tltrack[i]["name"]);
+				$scope.tltracks = tracks;
+			}
+			$scope.$apply()
+		});
+	});
 
 	function trackName(tlname) {
 		return tlname.album.name === name;
