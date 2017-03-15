@@ -154,7 +154,7 @@ mopidy.tracklist.getTracks()
     })
     .then(function(){
       // Notify user
-      $scope.message = ['success', track.name + 'à été ajouté à la playlist'];
+      $scope.message = ['success', track.name + ' à été ajouté à la playlist'];
       $scope.$apply();
       return mopidy.tracklist.setConsume([true]);
     })
