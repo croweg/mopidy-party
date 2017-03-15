@@ -8,9 +8,9 @@ angular.module('partyApp', [])
 
   $scope.message = [];
   $scope.tracks  = [];
-  $scope.tltracks = {
-    name : 'Aucune musique dans la playlist'
-  };
+  $scope.tltracks = [
+    "Aucune musique dans la playlist"
+  ];
   $scope.loading = true;
   $scope.ready   = false;
   $scope.currentState = {
@@ -63,10 +63,11 @@ console.log("extName: " + $scope.tltracks.name)
     mopidy.tracklist.getTracks().done(function(tltrack){
 	    console.log("tltrack: " + tltrack);
 	    var keys = Object.keys(tltrack);
+			$scope.tltracks = []
 			console.log("keys: " + keys);
 			for (var i = 0, len = keys.length; i < len; i++) {
 				console.log("Name: " + tltrack[i]["name"]);
-				$scope.tltracks.name.push(tltrack[i]["name"]);
+				$scope.tltracks.push(tltrack[i]["name"]);
 				console.log("ExtName: " + $scope.tltracks.name)}
 		});
 	});
