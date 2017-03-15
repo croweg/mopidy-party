@@ -69,6 +69,7 @@ console.log("extName: " + $scope.tltracks)
 				console.log("tracks: " + tracks);
 				$scope.tltracks = tracks;
 				console.log("ExtName: " + $scope.tltracks.name)}
+	    			$scope.$apply()
 		});
 	});
 
