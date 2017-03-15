@@ -29,8 +29,19 @@ console.log("extName: " + $scope.tltracks)
   // Adding listenners
 
   mopidy.on('state:online', function () {
-    mopidy.playback
-    .getCurrentTrack()
+    
+		mopidy.tracklist.getTracks()
+			.done(function(tltrack){ 
+	    var keys = Object.keys(tltrack);
+			var tracks = [];
+			for (var i = 0, len = keys.length; i < len; i++) { 
+				tracks.push(tltrack[i]["name"]);
+				$scope.tltracks = tracks;
+			}
+			$scope.$apply()
+		});
+		
+		mopidy.playback.getCurrentTrack()
     .then(function(track){
       if(track)
         $scope.currentState.track = track;
@@ -43,13 +54,6 @@ console.log("extName: " + $scope.tltracks)
     .then(function(length){
       $scope.currentState.length = length;
     })
-		.then(function(tltrack){ 
-	    var keys = Object.keys(tltrack);
-			var tracks = [];
-			for (var i = 0, len = keys.length; i < len; i++) { 
-				tracks.push(tltrack[i]["name"]);
-				$scope.tltracks = tracks;
-			}})
     .done(function(){
       $scope.ready   = true;
       $scope.loading = false;
