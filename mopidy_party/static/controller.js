@@ -29,19 +29,8 @@ console.log("extName: " + $scope.tltracks)
   // Adding listenners
 
   mopidy.on('state:online', function () {
-    
-		mopidy.tracklist.getTracks()
-			.done(function(tltrack){ 
-	    var keys = Object.keys(tltrack);
-			var tracks = [];
-			for (var i = 0, len = keys.length; i < len; i++) { 
-				tracks.push(tltrack[i]["name"]);
-				$scope.tltracks = tracks;
-			}
-			$scope.$apply()
-		});
-		
-		mopidy.playback.getCurrentTrack()
+    mopidy.playback
+    .getCurrentTrack()
     .then(function(track){
       if(track)
         $scope.currentState.track = track;
@@ -69,14 +58,18 @@ console.log("extName: " + $scope.tltracks)
     $scope.$apply();
   });
   mopidy.on('event:tracklistChanged', function(){
-    mopidy.tracklist.getTracks().done(function(tltrack){ 
+    mopidy.tracklist.getTracks().done(function(tltrack){
+	    console.log("tltrack: " + tltrack);
 	    var keys = Object.keys(tltrack);
 			var tracks = [];
-			for (var i = 0, len = keys.length; i < len; i++) { 
+			console.log("keys: " + keys);
+			for (var i = 0, len = keys.length; i < len; i++) {
+				console.log("Name: " + tltrack[i]["name"]); 
 				tracks.push(tltrack[i]["name"]);
+				console.log("tracks: " + tracks);
 				$scope.tltracks = tracks;
-			}
-			$scope.$apply()
+				console.log("ExtName: " + $scope.tltracks.name)}
+	    			$scope.$apply()
 		});
 	});
 
