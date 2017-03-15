@@ -28,7 +28,8 @@ angular.module('partyApp', [])
   // Adding listenners
 
   mopidy.on('state:online', function () {
-    mopidy.playback.getCurrentTrack()
+    
+		mopidy.playback.getCurrentTrack()
     .then(function(track){
       if(track)
         $scope.currentState.track = track;
@@ -46,6 +47,16 @@ angular.module('partyApp', [])
       $scope.loading = false;
       $scope.$apply();
     });
+		
+		mopidy.tracklist.getTracks().done(function(tltrack){
+	    var keys = Object.keys(tltrack);
+			var tracks = [];
+			for (var i = 0, len = keys.length; i < len; i++) { 
+				tracks.push(tltrack[i]["name"]);
+				$scope.tltracks = tracks;
+			}
+			$scope.$apply()
+		});
 		
   });
   mopidy.on('event:playbackStateChanged', function(event){
