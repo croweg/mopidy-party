@@ -189,8 +189,6 @@ angular.module('partyApp', [])
   };
 
 $scope.notifyMe = function notifyMe() {
-	$scope.trackvote = true;
-
 	
 	// Voyons si le navigateur supporte les notifications
   if (!("Notification" in window)) {
@@ -227,6 +225,7 @@ $scope.notifyMe = function notifyMe() {
 
   // Comme ça, si l'utlisateur a refusé toute notification, et que vous respectez ce choix,
   // il n'y a pas besoin de l'ennuyer à nouveau.
+$scope.trackvote = true;
 }
 
 });
