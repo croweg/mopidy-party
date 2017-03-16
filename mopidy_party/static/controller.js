@@ -48,7 +48,8 @@ angular.module('partyApp', [])
       $scope.$apply();
     });
 		
-		mopidy.tracklist.getTracks().done(function(tltrack){
+		mopidy.tracklist.getTracks()
+			.done(function(tltrack){
 	    var keys = Object.keys(tltrack);
 			var tracks = [];
 			for (var i = 0, len = keys.length; i < len; i++) { 
@@ -68,11 +69,14 @@ angular.module('partyApp', [])
     $scope.$apply();
   });
   mopidy.on('event:tracklistChanged', function(){
-    mopidy.tracklist.getTracks().done(function(tltrack){
-	    var keys = Object.keys(tltrack);
+    mopidy.tracklist.getTracks()
+			.done(function(tltrack){
+			var keys = Object.keys(tltrack);
 			var tracks = [];
+			var tlenght = 	[];
 			for (var i = 0, len = keys.length; i < len; i++) { 
 				tracks.push(tltrack[i]["name"]);
+				tlenght.push(tltrack[i]["lenght"])
 				$scope.tltracks = tracks;
 			}
 			$scope.$apply()
@@ -153,7 +157,7 @@ angular.module('partyApp', [])
     })
     .then(function(){
       // Notify user
-      $scope.message = ['success', track.name + ' à été ajouté à la playlist'];
+      $scope.message = ['success', 'Next track: ' + track.name];
       $scope.$apply();
       return mopidy.tracklist.setConsume([true]);
     })
@@ -169,7 +173,7 @@ angular.module('partyApp', [])
     })
     .catch(function(){
       track.disabled = false;
-      $scope.message = ['error', "Impossible d'ajouter la musique, réessayez..."];
+      $scope.message = ['error', 'Unable to add track, please try again...'];
       $scope.$apply();
     })
     .done();
@@ -183,3 +187,37 @@ angular.module('partyApp', [])
     $scope.$apply();
   };
 });
+
+function notifyMe() {
+  // Voyons si le navigateur supporte les notifications
+  if (!("Notification" in window)) {
+    alert("Ce navigateur ne supporte pas les notifications desktop");
+  }
+
+  // Voyons si l'utilisateur est OK pour recevoir des notifications
+  else if (Notification.permission === "granted") {
+    // Si c'est ok, créons une notification
+    var notification = new Notification("Salut toi !");
+  }
+
+  // Sinon, nous avons besoin de la permission de l'utilisateur
+  // Note : Chrome n'implémente pas la propriété statique permission
+  // Donc, nous devons vérifier s'il n'y a pas 'denied' à la place de 'default'
+  else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+
+      // Quelque soit la réponse de l'utilisateur, nous nous assurons de stocker cette information
+      if(!('permission' in Notification)) {
+        Notification.permission = permission;
+      }
+
+      // Si l'utilisateur est OK, on crée une notification
+      if (permission === "granted") {
+        var notification = new Notification("Salut toi !");
+      }
+    });
+  }
+
+  // Comme ça, si l'utlisateur a refusé toute notification, et que vous respectez ce choix,
+  // il n'y a pas besoin de l'ennuyer à nouveau.
+}
