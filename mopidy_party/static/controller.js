@@ -196,7 +196,9 @@ $scope.notifyMe = function notifyMe() {
   // Voyons si l'utilisateur est OK pour recevoir des notifications
   else if (Notification.permission === "granted") {
     // Si c'est ok, créons une notification
-    var notification = new Notification("Vote en cours !");
+    var text = "Votez pour enlever une musique";
+		var notification = new Notification("Vote en cours !", {body: text});
+		window.navigator.vibrate(500);
   }
 
   // Sinon, nous avons besoin de la permission de l'utilisateur
@@ -212,7 +214,9 @@ $scope.notifyMe = function notifyMe() {
 
       // Si l'utilisateur est OK, on crée une notification
       if (permission === "granted") {
-        var notification = new Notification("Vote en cours !");
+				var text = "Votez pour enlever une musique";
+				var notification = new Notification("Vote en cours !", {body: text});
+				window.navigator.vibrate(500);
       }
     });
   }
