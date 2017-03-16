@@ -80,7 +80,7 @@
 					<ul class="list-group" style="margin-top:0px">
 						<li class="list-group-item" ng-repeat="tltrack in tltracks">
 							{{ tltracks }} <small>{{ printDuration(tltrack) }}</small>
-							<button type="button" class="btn btn-danger pull-right" ng-click="notifyMe()">
+							<button type="button" class="btn btn-xs btn-danger pull-right" ng-click="notifyMe()">
 								<span class="glyphicon glyphicon-trash"></span>
 							</button>
 						</li>
@@ -89,6 +89,17 @@
 			</div>
 		
 		</div>
+		
+		<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
 
 	</body>
 </html>
