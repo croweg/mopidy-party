@@ -80,7 +80,7 @@
 					<ul class="list-group" style="margin-top:0px">
 						<li class="list-group-item" ng-repeat="tltrack in tltracks">
 							{{ tltracks }} <small>{{ printDuration(tltrack) }}</small>
-							<button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#myModal" ng-click="notifyMe()">
+							<button type="button" class="btn btn-xs btn-danger pull-right" data-toggle="modal" data-target="#myModal" ng-click="notifyMe()">
 								<span class="glyphicon glyphicon-trash"></span>
 							</button>
 						</li>
@@ -98,13 +98,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Vote en cours - xsec restant</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <p>vot Pour/contre</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
       </div>
     </div>
 
