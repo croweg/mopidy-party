@@ -5,7 +5,8 @@ Mopidy-Jukebox
 Extension web Mopidy crée pour pour notre projet de terminale. Son but principal est de fournir aux utilisateur une interface repondant à ces critères :
     - Interface adaptée aux smartphones
     - Utilisation simple et intuitive
-
+    - Possibilité de voter pour ou contre une musique
+    
 Installation
 ============
 
