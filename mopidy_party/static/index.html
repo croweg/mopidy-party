@@ -79,10 +79,10 @@
 				<div id="playlist" class="tab-pane fade">
 					<ul class="list-group" style="margin-top:0px">
 						<li class="list-group-item" ng-repeat="tltrack in tltracks">
-							<button type="button" class="btn btn-xs" ng-click="notifyMe()">
+							{{ tltracks }} <small>{{ printDuration(tltrack) }}</small>
+							<button type="button" class="btn btn-xs pull-right" ng-click="notifyMe()">
 								<span class="glyphicon glyphicon-thumbs-up"></span>
 							</button>
-							{{ tltracks }} <small>{{ printDuration(tltrack) }}</small>
 						</li>
 					</ul>
 				</div>
