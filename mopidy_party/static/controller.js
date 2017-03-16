@@ -11,6 +11,7 @@ angular.module('partyApp', [])
   $scope.tltracks = ["Aucune musique dans la playlist"];
   $scope.loading = true;
   $scope.ready   = false;
+	$scope.trackvote = false;
   $scope.currentState = {
     paused : false,
     length : 0,
@@ -188,7 +189,10 @@ angular.module('partyApp', [])
   };
 
 $scope.notifyMe = function notifyMe() {
-  // Voyons si le navigateur supporte les notifications
+	$scope.trackvote = true;
+
+	
+	// Voyons si le navigateur supporte les notifications
   if (!("Notification" in window)) {
     alert("Ce navigateur ne supporte pas les notifications desktop");
   }

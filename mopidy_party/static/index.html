@@ -80,8 +80,8 @@
 					<ul class="list-group" style="margin-top:0px">
 						<li class="list-group-item" ng-repeat="tltrack in tltracks">
 							{{ tltrack }} <small>{{ printDuration(tltrack) }}</small>
-							<button type="button" class="btn btn-xs btn-danger pull-right" data-toggle="modal" data-target="#myModal" ng-click="notifyMe()" ng-model="trackvote">
-								<span class="glyphicon glyphicon-trash" ng-disabled="trackvote"></span>
+							<button type="button" class="btn btn-xs btn-danger pull-right" data-toggle="modal" data-target="#myModal" ng-click="notifyMe()" ng-disabled="trackvote">
+								<span class="glyphicon glyphicon-trash"></span>
 							</button>
 						</li>
 					</ul>
