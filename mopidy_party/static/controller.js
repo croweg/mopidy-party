@@ -236,6 +236,9 @@ $scope.notifyMe = function notifyMe() {
 			clearInterval(counterBack);
 		}
 	}, 1000);
+    
+	$("#myCarousel").carousel({interval: 30000});
+
 	
 $scope.trackvote = true;
 }
