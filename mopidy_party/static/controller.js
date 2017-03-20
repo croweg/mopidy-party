@@ -233,7 +233,7 @@ var counterBack = setInterval(function(){
     clearInterval(counterBack);
   }
   
-}, 0.3333);
+}, 333.333);
   // Comme ça, si l'utlisateur a refusé toute notification, et que vous respectez ce choix,
   // il n'y a pas besoin de l'ennuyer à nouveau.
 $scope.trackvote = true;
