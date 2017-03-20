@@ -229,7 +229,6 @@ $scope.notifyMe = function notifyMe() {
 
 var counterBack = setInterval(function(){
   i--;
-	t--;
   if (i > 0){
     $('.progress-bar').css('width', i*3 +'%');
 		$scope.timevote = i;
