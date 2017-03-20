@@ -231,7 +231,7 @@ var counterBack = setInterval(function(){
   i--;
 	t--;
   if (i > 0){
-    $('.progress-bar').css('width', i*3.333+'%');
+    $('.progress-bar').css('width', i*3 +'%');
 		$scope.timevote = i;
 		$scope.$apply()
   } else {
