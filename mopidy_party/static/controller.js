@@ -223,23 +223,20 @@ $scope.notifyMe = function notifyMe() {
       }
     });
   }
-
-
+	
 	var i = 30;
-
-var counterBack = setInterval(function(){
-  i--;
-  if (i > 0){
-    $('.progress-bar').css('width', i*3 +'%');
-		$scope.timevote = i;
-		$scope.$apply()
-  } else {
-    clearInterval(counterBack);
-  }
-  
-}, 1000);
-  // Comme ça, si l'utlisateur a refusé toute notification, et que vous respectez ce choix,
-  // il n'y a pas besoin de l'ennuyer à nouveau.
+	var counterBack = setInterval(function(){
+		i--;
+		if (i >= 0){
+			$('.progress-bar').css('width', i*3+6 +'%');
+			$scope.timevote = i;
+			$scope.$apply()
+		}
+		else{
+			clearInterval(counterBack);
+		}
+	}, 1000);
+	
 $scope.trackvote = true;
 }
 
