@@ -230,10 +230,11 @@ $scope.notifyMe = function notifyMe() {
 
 var counterBack = setInterval(function(){
   i--;
+	t--;
   if (i > 0){
     $('.progress-bar').css('width', i+'%');
-		t = t - 1;
-		$scope.timevote = t 
+		$scope.timevote = t;
+		$scope.$apply()
   } else {
     clearInterval(counterBack);
   }
