@@ -225,15 +225,14 @@ $scope.notifyMe = function notifyMe() {
   }
 
 
-	var t = 30;
 	var i = 30;
 
 var counterBack = setInterval(function(){
   i--;
 	t--;
   if (i > 0){
-    $('.progress-bar').css('width', i+'%');
-		$scope.timevote = t;
+    $('.progress-bar').css('width', i*3.333+'%');
+		$scope.timevote = i;
 		$scope.$apply()
   } else {
     clearInterval(counterBack);
