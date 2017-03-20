@@ -9,7 +9,7 @@ angular.module('partyApp', [])
   $scope.message = [];
   $scope.tracks  = [];
   $scope.tltracks = ["Aucune musique dans la playlist"];
-	$scope.timevote = 0;
+	$scope.timevote = 30;
   $scope.loading = true;
   $scope.ready   = false;
 	$scope.trackvote = false;
@@ -225,7 +225,7 @@ $scope.notifyMe = function notifyMe() {
   }
 
 
-	var t = 30
+	var t = 30;
 	var i = 100;
 
 var counterBack = setInterval(function(){
