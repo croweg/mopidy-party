@@ -9,6 +9,7 @@ angular.module('partyApp', [])
   $scope.message = [];
   $scope.tracks  = [];
   $scope.tltracks = ["Aucune musique dans la playlist"];
+	$scope.timevote = 0;
   $scope.loading = true;
   $scope.ready   = false;
 	$scope.trackvote = false;
@@ -223,12 +224,16 @@ $scope.notifyMe = function notifyMe() {
     });
   }
 
+
+	var t = 30
 	var i = 100;
 
 var counterBack = setInterval(function(){
   i--;
   if (i > 0){
     $('.progress-bar').css('width', i+'%');
+		t = t - 1;
+		$scope.timevote = t 
   } else {
     clearInterval(counterBack);
   }
