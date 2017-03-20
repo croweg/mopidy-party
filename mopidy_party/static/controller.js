@@ -223,6 +223,17 @@ $scope.notifyMe = function notifyMe() {
     });
   }
 
+	var i = 100;
+
+var counterBack = setInterval(function(){
+  i--;
+  if (i > 0){
+    $('.progress-bar').css('width', i+'%');
+  } else {
+    clearInterval(counterBack);
+  }
+  
+}, 1000);
   // Comme ça, si l'utlisateur a refusé toute notification, et que vous respectez ce choix,
   // il n'y a pas besoin de l'ennuyer à nouveau.
 $scope.trackvote = true;
