@@ -93,36 +93,52 @@
 		<!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+			</ol>
+			
+			 <div class="carousel-inner" role="listbox">
+				 <div class="item active">
+					 <div class="modal-content"style="text-align: center">
+						 <div class="modal-header">
+							 <h4 class="modal-title">Vote en cours - {{timevote}}s restantes</h4>
+							 <div class="progress">
+								 <div class="progress-bar progress-bar-striped active" role="progressbar"
+   aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+								 </div>
+							 </div>
+						 </div>
+						 
+						 <div class="modal-body" >
+							 <div class="row">
+								 <div class="col-sm-6">
+									 <h1>Votez pour</h1><br>
+									 <button type="button" class="btn btn-lg btn-success">
+										 <span class="glyphicon glyphicon-thumbs-up"></span>
+									 </button>
+								 </div>
+								 <div class="col-sm-6">
+									 <h1>Votez contre</h1><br>
+									 <button type="button" class="btn btn-lg btn-danger">
+										 <span class="glyphicon glyphicon-thumbs-down"></span>
+									 </button>
+								 </div>
+							 </div>
+						 </div>
 
-    <!-- Modal content-->
-    <div class="modal-content"style="text-align: center">
-      <div class="modal-header">
-        <h4 class="modal-title">Vote en cours - {{timevote}}s restantes</h4>
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped active" role="progressbar"
-   aria-valuemin="0" aria-valuemax="30" style="width: 100%">
-    {{timevote}}
-					</div>
-</div>
-      </div>
-      <div class="modal-body" >
-				 <div class="row">
-					 <div class="col-sm-6">
-					 	<h1>Votez pour</h1><br>
-						 <button type="button" class="btn btn-lg btn-success">
-							 <span class="glyphicon glyphicon-thumbs-up"></span>
-						 </button>
 					 </div>
-					 <div class="col-sm-6">
-					 	<h1>Votez contre</h1><br>
-						 <button type="button" class="btn btn-lg btn-danger">
-							 <span class="glyphicon glyphicon-thumbs-down"></span>
-						 </button>
-					 </div>
-				</div>
-    </div>
+				 </div>
 
-  </div>
+				 <div class="item">
+					 <img src="img_chania2.jpg" alt="Chania">
+				 </div>
+			</div>
+		</div>
+		
+
 </div>
 		
 	</body>
