@@ -226,7 +226,7 @@ $scope.notifyMe = function notifyMe() {
 
 
 	var t = 30;
-	var i = 100;
+	var i = 30;
 
 var counterBack = setInterval(function(){
   i--;
@@ -239,7 +239,7 @@ var counterBack = setInterval(function(){
     clearInterval(counterBack);
   }
   
-}, 333.333);
+}, 1000);
   // Comme ça, si l'utlisateur a refusé toute notification, et que vous respectez ce choix,
   // il n'y a pas besoin de l'ennuyer à nouveau.
 $scope.trackvote = true;
