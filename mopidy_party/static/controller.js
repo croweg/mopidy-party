@@ -11,7 +11,7 @@ angular.module('partyApp', [])
 	$scope.timevote = 30;
 	$scope.loading = true;
 	$scope.ready   = false;
-	$scope.trackvote = false;
+	$scope.trackvote = true;
 	$scope.currentState = {
 		paused : false,
 		length : 0,
@@ -226,16 +226,17 @@ $scope.notifyMe = function notifyMe() {
 		i--;
 		if (i >= 0){
 			$('.progress-bar').css('width', i*3+6 +'%');
+			$scope.trackvote = false;
 			$scope.timevote = i;
 			$scope.$apply()
 		}
 		else{
 			clearInterval(counterBack);
 			$("#myCarousel").carousel("next");
+			$scope.trackvote = true;
 		}
 	}, 1000);
 	
-	$scope.trackvote = true;
 }
 
 });
