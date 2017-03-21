@@ -230,8 +230,10 @@ $scope.notifyMe = function notifyMe() {
 		}
 		else{
 			clearInterval(counterBack);
+			$("#myCarousel").carousel("next");
 		}
 	}, 1000);
+	
 	$scope.trackvote = true;
 }
 
