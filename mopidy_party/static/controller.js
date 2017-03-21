@@ -220,6 +220,7 @@ $scope.notifyMe = function notifyMe() {
     });
 	}
 	
+	$("#myCarousel").carousel(0);
 	var i = 30;
 	var counterBack = setInterval(function(){
 		i--;

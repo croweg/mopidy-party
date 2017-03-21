@@ -52,7 +52,7 @@ body {
 }
 
 .nav-pills {
-	text-transform: uppercase;
+	font-weight: bold;
 }
 
 .list-group-item {
