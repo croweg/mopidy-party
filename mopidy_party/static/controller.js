@@ -5,54 +5,52 @@ angular.module('partyApp', [])
   .controller('MainController', function($scope) {
 
   // Scope variables
-
-  $scope.message = [];
-  $scope.tracks  = [];
-  $scope.tltracks = ["Aucune musique dans la playlist"];
+	$scope.message = [];
+	$scope.tracks  = [];
+	$scope.tltracks = ["Aucune musique dans la playlist"];
 	$scope.timevote = 30;
-  $scope.loading = true;
-  $scope.ready   = false;
+	$scope.loading = true;
+	$scope.ready   = false;
 	$scope.trackvote = false;
-  $scope.currentState = {
-    paused : false,
-    length : 0,
-    track  : {
-      length : 0,
-      name   : 'Aucune musique dans la playlist, recherchez et ajoutez en !'
-    }
-  };
-  // Initialize
-
-  var mopidy = new Mopidy({
-    'callingConvention' : 'by-position-or-by-name'
-  });
+	$scope.currentState = {
+		paused : false,
+		length : 0,
+		track  : {
+			length : 0,
+			name   : 'Aucune musique dans la playlist, recherchez et ajoutez en !'
+		}
+	};
+	
+	// Initialize
+	var mopidy = new Mopidy({
+		'callingConvention' : 'by-position-or-by-name'
+	});
 
   // Adding listenners
-
-  mopidy.on('state:online', function () {
+	mopidy.on('state:online', function () {
     
 		mopidy.playback.getCurrentTrack()
-    .then(function(track){
-      if(track)
-        $scope.currentState.track = track;
-      return mopidy.playback.getState();
-    })
-    .then(function(state){
-      $scope.currentState.paused = (state === 'paused');
-      return mopidy.tracklist.getLength();
-    })
-    .then(function(length){
-      $scope.currentState.length = length;
-    })
-    .done(function(){
-      $scope.ready   = true;
+			.then(function(track){
+			if(track)
+				$scope.currentState.track = track;
+			return mopidy.playback.getState();
+		})
+			.then(function(state){
+			$scope.currentState.paused = (state === 'paused');
+			return mopidy.tracklist.getLength();
+		})
+			.then(function(length){
+			$scope.currentState.length = length;
+		})
+			.done(function(){
+			$scope.ready   = true;
       $scope.loading = false;
       $scope.$apply();
     });
 		
 		mopidy.tracklist.getTracks()
 			.done(function(tltrack){
-	    var keys = Object.keys(tltrack);
+			var keys = Object.keys(tltrack);
 			var tracks = [];
 			for (var i = 0, len = keys.length; i < len; i++) { 
 				tracks.push(tltrack[i]["name"]);
@@ -60,18 +58,20 @@ angular.module('partyApp', [])
 			}
 			$scope.$apply()
 		});
-		
-  });
-  mopidy.on('event:playbackStateChanged', function(event){
-    $scope.currentState.paused = (event.new_state === 'paused');
-    $scope.$apply();
-  });
-  mopidy.on('event:trackPlaybackStarted', function(event){
-    $scope.currentState.track = event.tl_track.track;
-    $scope.$apply();
-  });
-  mopidy.on('event:tracklistChanged', function(){
-    mopidy.tracklist.getTracks()
+	});
+  
+	mopidy.on('event:playbackStateChanged', function(event){
+		$scope.currentState.paused = (event.new_state === 'paused');
+		$scope.$apply();
+	});
+  
+	mopidy.on('event:trackPlaybackStarted', function(event){
+		$scope.currentState.track = event.tl_track.track;
+		$scope.$apply();
+	});
+	
+	mopidy.on('event:tracklistChanged', function(){
+		mopidy.tracklist.getTracks()
 			.done(function(tltrack){
 			var keys = Object.keys(tltrack);
 			var tracks = [];
@@ -89,24 +89,23 @@ angular.module('partyApp', [])
 		return tlname.album.name === name;
 	}
 	
-  $scope.printDuration = function(track){
+	$scope.printDuration = function(track){
+		if(!track.length)
+			return '';
+		
+		var _sum = parseInt(track.length / 1000);
+		var _min = parseInt(_sum / 60);
+		var _sec = _sum % 60;
 
-    if(!track.length)
-      return '';
+		return '(' + _min + ':' + (_sec < 10 ? '0' + _sec : _sec) + ')' ;
+	};
 
-    var _sum = parseInt(track.length / 1000);
-    var _min = parseInt(_sum / 60);
-    var _sec = _sum % 60;
+	$scope.togglePause = function(){
+		var _fn = $scope.currentState.paused ? mopidy.playback.resume : mopidy.playback.pause;
+		_fn().done();
+	};
 
-    return '(' + _min + ':' + (_sec < 10 ? '0' + _sec : _sec) + ')' ;
-  };
-
-  $scope.togglePause = function(){
-    var _fn = $scope.currentState.paused ? mopidy.playback.resume : mopidy.playback.pause;
-    _fn().done();
-  };
-
-  $scope.search = function(){
+	$scope.search = function(){
 
     if(!$scope.searchField)
       return;
@@ -131,38 +130,35 @@ angular.module('partyApp', [])
             _found = true;
             mopidy.tracklist.filter({'uri': [res[i].tracks[_index].uri]}).done(function(matches){
     if (matches.length) {
-      for (var i = 0; i < $scope.tracks.length; i++)
-      {
-        if ($scope.tracks[i].uri == matches[0].track.uri)
-          $scope.tracks[i].disabled = true;
-      }
-      $scope.$apply();
-    }
-      });
-          }
-        }
-        _index++;
-      }
-
-      $scope.$apply();
-    });
-  };
+      for (var i = 0; i < $scope.tracks.length; i++){
+				if ($scope.tracks[i].uri == matches[0].track.uri)
+					$scope.tracks[i].disabled = true;
+			}
+			$scope.$apply();
+		}
+						});
+					}
+				}
+				_index++;
+			}
+			$scope.$apply();
+		});
+	};
 
   $scope.addTrack = function(track){
 
     track.disabled = true;
 
-    mopidy.tracklist
-    .index()
-    .then(function(index){
-      return mopidy.tracklist.add({uris: [track.uri]});
-    })
-    .then(function(){
-      // Notify user
-      $scope.message = ['success', track.name + " à été ajouté à la playlist"];
-      $scope.$apply();
-      return mopidy.tracklist.setConsume([true]);
-    })
+    mopidy.tracklist.index()
+			.then(function(index){
+			return mopidy.tracklist.add({uris: [track.uri]});
+		})
+			.then(function(){
+			// Notify user
+			$scope.message = ['success', track.name + " à été ajouté à la playlist"];
+			$scope.$apply();
+			return mopidy.tracklist.setConsume([true]);
+		})
     .then(function(){
       return mopidy.playback.getState();
     })
@@ -222,7 +218,7 @@ $scope.notifyMe = function notifyMe() {
 				window.navigator.vibrate(500);
       }
     });
-  }
+	}
 	
 	var i = 30;
 	var counterBack = setInterval(function(){
@@ -236,11 +232,7 @@ $scope.notifyMe = function notifyMe() {
 			clearInterval(counterBack);
 		}
 	}, 1000);
-    
-	$("#myCarousel").carousel({interval: 30000});
-
-	
-$scope.trackvote = true;
+	$scope.trackvote = true;
 }
 
 });
