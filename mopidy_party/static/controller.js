@@ -234,7 +234,7 @@ $scope.notifyMe = function notifyMe() {
 			clearInterval(counterBack);
 			$("#myCarousel").carousel("next");
 			$scope.trackvote = true;
-			$scope.$capply()
+			$scope.$apply()
 		}
 	}, 1000);
 	
