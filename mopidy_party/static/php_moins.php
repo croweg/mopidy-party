@@ -14,7 +14,7 @@ fputs($fichier_resultats, $vote_n);
 //on ferme le fichier
 fclose($fichier_resultats);
 //on ferme l'onglet
-window.close();
+echo "<script language='javascript'>window.close()</script>";
 ?>
 <html>
 <h1>Le vote negatif a ete enregistre</h1>
