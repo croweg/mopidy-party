@@ -156,8 +156,8 @@
 									 fseek($fichier_resultats_positifs,0);
 									 $resultats_positifs=fgets($fichier_resultats_positifs);
 									 fclose($fichier_resultats_positifs);
-									 echo $resultats_positifs;
 									 ?>
+									 <a href="<?php echo($resultats_positifs); ?>"></a>
 								 </div>
 								 <div class="col-sm-6">
 									 <h1>Votes contre:</h1><br>
