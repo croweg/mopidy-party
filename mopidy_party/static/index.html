@@ -117,7 +117,7 @@
 							 <div class="row">
 								 <div class="col-sm-6">
 									 <h1>Votez pour</h1><br>
-									 <form method="get" action="php_plus.php" TARGET=_BLANK >
+									 <form method="get" action="php_plus.php" onclick="window.open(this.href); return false;" >
 										<button type="submit" name="plus" >
 										<span class="glyphicon glyphicon-thumbs-up"></span>
 										</button>	
@@ -126,7 +126,7 @@
 								 </div>
 								 <div class="col-sm-6">
 									 <h1>Votez contre</h1><br>
-									 <form method="get" action="php_moins.php" TARGET=_BLANK >
+									 <form method="get" action="php_moins.php" onclick="window.open(this.href); return false;" >
 										<button type="submit" name="moins">
 										<span class="glyphicon glyphicon-thumbs-down"></span>
 										</button>
