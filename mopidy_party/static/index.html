@@ -15,8 +15,14 @@
 		<script type="text/javascript" src="/mopidy/mopidy.min.js"></script>
 		<script type="text/javascript" src="vendors/angular.min.js"></script>
 		<script type="text/javascript" src="controller.js"></script>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
   </head>
 	
+	<script>
+		var socket = io.connect('http://localhost:8080');
+	</script>
+
+
 	<div class="row" id="playing">
 		<div class="col-xs-4" >
 			<b><font color="white">En lecture : </font></b> 
