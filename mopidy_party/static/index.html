@@ -10,16 +10,16 @@
 		<link href="vendors/bootstrap.min.css" rel="stylesheet">
 		<link href="style.css" rel="stylesheet">
 	 
-		<script src="/socket.io/socket.io.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/mopidy/mopidy.min.js"></script>
 		<script type="text/javascript" src="vendors/angular.min.js"></script>
 		<script type="text/javascript" src="controller.js"></script>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
   </head>
 	
 	<script>
-		var socket = io.connect('http://localhost:6680');
+		var socket = io.connect('http://localhost:8080');
 	</script>
 	
 	<div class="row" id="playing">
