@@ -13,6 +13,8 @@ $vote_n=$vote_n+1;
 fputs($fichier_resultats, $vote_n);
 //on ferme le fichier
 fclose($fichier_resultats);
+//on ferme l'onglet
+window.close();
 ?>
 <html>
 <h1>Le vote negatif a ete enregistre</h1>
