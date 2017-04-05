@@ -155,13 +155,15 @@
 									 $fichier_resultats_positifs=fopen('result_positif.txt', 'r+');
 									 fseek($fichier_resultats_positifs,0);
 									 $resultats_positifs=fgets($fichier_resultats_positifs);
+									 fclose($fichier_resultats_positifs);
 									 echo $resultats_positifs;
+									 ?>
 								 </div>
 								 <div class="col-sm-6">
-									 <h1>Votes contre s</h1><br>
+									 <h1>Votes contre:</h1><br>
 									 <!--<button type="button" class="btn btn-lg btn-danger disabled">
 										 <span class="glyphicon glyphicon-thumbs-down"></span>
-									 </button> -->
+									 </button>-->
 								 </div>
 							 </div>
 						 </div>
