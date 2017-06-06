@@ -9,6 +9,8 @@ angular.module('partyApp', [])
 	$scope.tracks  = [];
 	$scope.tltracks = ["Aucune musique dans la playlist"];
 	$scope.timevote = 30;
+	$scope.voteplus = 0;
+	$scope.votemoins = 0;
 	$scope.loading = true;
 	$scope.ready   = false;
 	$scope.trackvote = true;
@@ -237,6 +239,24 @@ $scope.notifyMe = function notifyMe() {
 			$scope.$apply()
 		}
 	}, 1000);
+	
+	var read = new XMLHttpRequest();
+		read.open('GET', '/var/www/html/toto/result_positif.txt', false);
+		read.send();
+
+        var displayName = parseInt(read.responseTxt)
+        $scope.voteplus = displayName;
+				$scope.$apply();
+
+	var read = new XMLHttpRequest();
+        read.open('GET', '/var/www/html/toto/result_negatif.txt', false);
+        read.send();
+
+        var displayName = parseInt(read.responseTxt)
+        $scope.votemoins = displayName;
+				$scope.$apply();
+
+	console.log
 	
 }
 
