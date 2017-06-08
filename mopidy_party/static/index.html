@@ -28,7 +28,7 @@
 			<b><font color="white">En lecture : </font></b> 
 		</div>
 	<div class="col-xs-8" >
-		<marquee direction="left" behavior="alternate" scrollamount="2"><font color="white">{{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</small></font></marquee>
+		<marquee direction="left"  scrollamount="2"><font color="white">{{ currentState.track.name }} <small>{{ printDuration(currentState.track) }}</small></font></marquee>
 	</div>
 	</div>
 
@@ -123,13 +123,13 @@
 							 <div class="row">
 								 <div class="col-sm-6">
 									 <h1>Votez pour</h1><br>
-									 <button type="button" class="btn btn-lg btn-success" OnClick="javascript:document.location.href='http://10.129.253.246/toto/php_plus.php'">
+									 <button ng-click="vplus = vplus + 1" ng-init="vplus=0" type="button" class="btn btn-lg btn-success">
 										 <span class="glyphicon glyphicon-thumbs-up"></span>
 									 </button>
 								 </div>
 								 <div class="col-sm-6">
 									 <h1>Votez contre</h1><br>
-									 <button type="button" class="btn btn-lg btn-danger" OnClick="javascript:document.location.href='http://10.129.253.246/toto/php_moins.php'">
+									 <button ng-click="vmoins = vmoins + 1" ng-init="vmoins=0" type="button" class="btn btn-lg btn-danger">
 										 <span class="glyphicon glyphicon-thumbs-down"></span>
 									 </button>
 								 </div>
@@ -142,21 +142,15 @@
 				 <div class="item">
 					 <div class="modal-content">
 						 <div class="modal-header">
-							 <h4 class="modal-title">Vote terminé </h4>
+							 <h1 class="modal-title">Vote terminé </h1>
 						 </div>
 						 
-						 <div class="modal-body" >Trop tard - Positif = {{voteplus}} - Negatif = {{votemoins}}
+						 <div class="modal-body" >Positif = {{vplus}}   Negatif = {{vmoins}}
 							 <div class="row">
-								 <div class="col-sm-6">
-									 <h1>Votez pour</h1><br>
+								 <div class="col-sm-12">
+									 <h1></h1><br>
 									 <button type="button" class="btn btn-lg btn-success disabled">
 										 <span class="glyphicon glyphicon-thumbs-up"></span>
-									 </button>
-								 </div>
-								 <div class="col-sm-6">
-									 <h1>Votez contre</h1><br>
-									 <button type="button" class="btn btn-lg btn-danger disabled">
-										 <span class="glyphicon glyphicon-thumbs-down"></span>
 									 </button>
 								 </div>
 							 </div>
